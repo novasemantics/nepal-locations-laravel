@@ -1,0 +1,65 @@
+[
+    {
+        "id": "1",
+        "name": "Koshi",
+        "name_np": "कोशी",
+        "lat": 27.3,
+        "lng": 87.3,
+        "area": 25905,
+        "population": 4972021
+    },
+    {
+        "id": "2",
+        "name": "Madhesh",
+        "name_np": "मधेश",
+        "lat": 26.6,
+        "lng": 85.9,
+        "area": 9661,
+        "population": 6126288
+    },
+    {
+        "id": "3",
+        "name": "Bagmati",
+        "name_np": "बागमती",
+        "lat": 27.6,
+        "lng": 85.3,
+        "area": 20300,
+        "population": 6084042
+    },
+    {
+        "id": "4",
+        "name": "Gandaki",
+        "name_np": "गण्डकी",
+        "lat": 28.2,
+        "lng": 84.0,
+        "area": 21504,
+        "population": 2479745
+    },
+    {
+        "id": "5",
+        "name": "Lumbini",
+        "name_np": "लुम्बिनी",
+        "lat": 27.7,
+        "lng": 83.2,
+        "area": 22288,
+        "population": 5124225
+    },
+    {
+        "id": "6",
+        "name": "Karnali",
+        "name_np": "कर्णाली",
+        "lat": 28.6,
+        "lng": 82.3,
+        "area": 27984,
+        "population": 1694889
+    },
+    {
+        "id": "7",
+        "name": "Sudurpashchim",
+        "name_np": "सुदूरपश्चिम",
+        "lat": 29.1,
+        "lng": 80.6,
+        "area": 19999.28,
+        "population": 2711270
+    }
+]

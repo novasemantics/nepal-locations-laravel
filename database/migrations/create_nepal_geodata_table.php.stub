@@ -1,0 +1,51 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up(): void
+    {
+        $tablePrefix = config('nepal-locations-laravel.table_prefix');
+
+        Schema::create("{$tablePrefix}provinces", function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('name_np');
+            $table->decimal('lat', 10, 6);
+            $table->decimal('lng', 10, 6);
+            $table->decimal('area', 10, 2)->nullable();
+            $table->unsignedInteger('population')->nullable();
+            $table->json('additional_info')->nullable();
+        });
+
+        Schema::create("{$tablePrefix}districts", function (Blueprint $table) use ($tablePrefix) {
+            $table->id();
+            $table->string('name');
+            $table->string('name_np');
+            $table->foreignId('province_id')->constrained("{$tablePrefix}provinces")->onDelete('cascade');
+            $table->boolean('is_capital')->default(false);
+            $table->decimal('lat', 10, 6)->nullable();
+            $table->decimal('lng', 10, 6)->nullable();
+            $table->decimal('area', 10, 2)->nullable();
+            $table->unsignedInteger('population')->nullable();
+            $table->json('additional_info')->nullable();
+        });
+
+        Schema::create("{$tablePrefix}cities", function (Blueprint $table) use ($tablePrefix) {
+            $table->id();
+            $table->string('name');
+            $table->string('name_np');
+            $table->string('type')->index();
+            $table->foreignId('province_id')->constrained("{$tablePrefix}provinces")->onDelete('cascade');
+            $table->foreignId('district_id')->constrained("{$tablePrefix}districts")->onDelete('cascade');
+            $table->decimal('lat', 10, 6)->nullable();
+            $table->decimal('lng', 10, 6)->nullable();
+            $table->decimal('area', 10, 2)->nullable();
+            $table->unsignedInteger('wards')->nullable();
+            $table->unsignedInteger('population')->nullable();
+            $table->json('additional_info')->nullable();
+        });
+    }
+};
